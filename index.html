@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body onload="getPictures()"> 
+        <div>
+            <img id="nasa-image" src="">
+        </div> 
+        <div class="weather">
+            <div id="search">
+                <input id="search-box" type="textbox" placeholder="City or ZipCode"></input>
+                <button type="button" id="search-location">Search</button>
+                <h2 id="city-name">Mount Vernon</h2>
+            </div>
+            <div class="weather-icon">
+                <img src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-04-256.png">
+                <h2 id="current-temp">23°</h2>
+                <h4 id="current-conditions">Partly Cloudy</h4>
+            </div>
+            <div class="humidity-wind">
+                <div class="humidity">
+                    <img id="humidity-img" src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_30-48.png">
+                    <p id="humidity-amount">25%</p>
+                    <p id="humidity-tag">Humidity</p>
+                </div>
+                <div class="wind">
+                    <img id="wind-img" src="https://cdn0.iconfinder.com/data/icons/weather-line-19/32/Windy-48.png">
+                    <p id="wind-amount">23mph</p>
+                    <p id="wind-tag">Wind Speed</p>
+                </div>
+            </div>
+        </div>    
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

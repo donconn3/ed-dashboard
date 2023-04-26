@@ -1,0 +1,108 @@
+body{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+
+#nasa-image{
+    height: auto;
+    width: 500px;
+    border: 5px solid black;
+    border-radius: 15px;
+    display: flex;
+}
+
+.weather{
+    margin: 50px;
+    border: 5px solid black;
+    border-radius: 15px;
+    width: 300px;
+    height: 500px;
+}
+#search{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+#city-name{
+    margin: auto;
+    padding-top: 10px;
+}
+
+.weather-icon{
+    display: grid;
+    grid-template-rows: 1fr 50px 50px;
+    grid-template-columns: auto;
+    grid-template-areas: "icons"
+                         "temp"
+                         "conditions";
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -20px;
+
+}
+.weather-icon img{
+    grid-area: icons;
+    margin: -20px;
+}
+#current-temp{
+    grid-area: temp;
+    font-size: 50px;
+    margin:0;
+}
+#current-conditions{
+    grid-area: conditions;
+    font-size: 30px;
+    margin:0;
+}
+.humidity-wind{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin-top:25px;
+}
+.humidity{
+    display:grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 40px 40px;
+    grid-template-areas: "img1 amount""img1 tag";
+}
+#humidity-img{
+    grid-area: img1;
+    justify-self:right;
+}
+#humidity-amount{
+    grid-area: amount;
+    display: flex;
+    font-size: 30px;
+    margin:0;
+    align-items:flex-end;
+}
+#humidity-tag{
+    grid-area: tag;
+    margin:0;
+}
+.wind{
+    display:grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 40px 40px;
+    grid-template-areas: "img2 amount""img2 tag";
+}
+#wind-img{
+    grid-area: img2;
+    justify-self:right;
+}
+#wind-amount{
+    grid-area: amount;
+    display: flex;
+    font-size: 30px;
+    margin:0;
+    align-items:flex-end;
+}
+#wind-tag{
+    grid-area: tag;
+    margin:0;
+    
+}
