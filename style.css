@@ -1,6 +1,7 @@
 body{
     display: flex;
     font-family: 'Poppins', sans-serif;
+    overflow: scroll;
 }
 
 #nasa-image{
@@ -15,8 +16,11 @@ body{
     margin: 50px;
     border: 5px solid black;
     border-radius: 15px;
-    width: 300px;
-    height: 500px;
+    min-width: 325px;
+    height: 425px;
+    max-width:325px;
+   
+    
 }
 #search{
     display: flex;
@@ -45,7 +49,8 @@ body{
 }
 .weather-icon img{
     grid-area: icons;
-    margin: -20px;
+    width: 128px;
+    height:auto;
 }
 #current-temp{
     grid-area: temp;
@@ -54,7 +59,7 @@ body{
 }
 #current-conditions{
     grid-area: conditions;
-    font-size: 30px;
+    font-size: 25px;
     margin:0;
 }
 .humidity-wind{
@@ -67,7 +72,7 @@ body{
     display:grid;
     grid-template-columns: 1fr 1.5fr;
     grid-template-rows: 40px 40px;
-    grid-template-areas: "img1 amount""img1 tag";
+    grid-template-areas: "img1 amount""tag tag";
 }
 #humidity-img{
     grid-area: img1;
@@ -76,19 +81,20 @@ body{
 #humidity-amount{
     grid-area: amount;
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     margin:0;
     align-items:flex-end;
 }
 #humidity-tag{
     grid-area: tag;
     margin:0;
+    justify-self: center;
 }
 .wind{
     display:grid;
     grid-template-columns: 1fr 1.5fr;
     grid-template-rows: 40px 40px;
-    grid-template-areas: "img2 amount""img2 tag";
+    grid-template-areas: "img2 amount""tag tag";
 }
 #wind-img{
     grid-area: img2;
@@ -97,12 +103,14 @@ body{
 #wind-amount{
     grid-area: amount;
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     margin:0;
     align-items:flex-end;
 }
 #wind-tag{
     grid-area: tag;
     margin:0;
+    font: size 25px;
+    justify-self: center;
     
 }
