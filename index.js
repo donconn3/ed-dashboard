@@ -1,6 +1,6 @@
-
+//my api akey for NASA API
 const nasaKey = 'TkCb2NZH6BoNFd4JYAOrm8EewMaCsEyhmfGksWhO';
-
+// this function uses axios to call the APOD from NASA and grabs the url for the picture URL and sets the img src to the img tag
 const getPictures = () =>{
     axios
     .get('https://api.nasa.gov/planetary/apod?api_key=' + nasaKey)
@@ -11,6 +11,7 @@ const getPictures = () =>{
     })
     .catch(error => console.error(error))
 }
+//this is a helper function that atkes the State from the weather API and returns it's abbreviation
 const stateCode = (state) =>{
     var states = [
         ['Arizona', 'AZ'],
@@ -72,9 +73,14 @@ const stateCode = (state) =>{
 }
 
 }
+
+//this is makes the API call to the weather API and returns the data in the webpage
 const getWeather =async () =>{
+
+//gets the string value from the search box
 const location = document.getElementById('search-box').value;
 
+//builds the API request
 const options = {
   method: 'GET',
   url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
@@ -87,8 +93,10 @@ const options = {
   }
 };
 
+//empty object to hold JSON data
 let data = {};
 
+//try-catch block to send the request to the API, parse through data, and set the data in the webpage
 try {
 	const response = await axios.request(options);
 	data = response.data;
