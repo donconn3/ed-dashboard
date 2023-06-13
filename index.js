@@ -78,7 +78,8 @@ const stateCode = (state) =>{
 const getWeather =async () =>{
 
 //gets the string value from the search box
-const location = document.getElementById('search-box').value;
+let location = document.getElementById('search-box').value;
+
 
 //builds the API request
 const options = {
@@ -110,4 +111,26 @@ try {
 	console.error(error);
 }
 
+}
+
+// const getIpAddress = () =>{
+//   let data;
+//   axios
+//   .get('https://ipinfo.io/json?token=a92f643f30573a')
+//     .then(response =>{
+//       data = response.data;
+//       //text.innerText = JSON.stringify(data);
+//       document.getElementById('city-state').innerText = 'City: ' + data.city + ', ' + data.region;
+//       document.getElementById('postal').innerText = 'Zip Code: ' + data.postal;
+//       document.getElementById('country').innerText = 'Country: ' + data.country;
+//       document.getElementById('ip').innerText = 'IP Address: ' + data.ip;
+//       document.getElementById('loc').innerText = 'Coordinates: ' + data.loc;
+//       console.log(data);
+//     }) .catch(error => console.error(error));
+// }
+
+const getWxFromIpAddress = async() =>{
+  const ipAddress = await axios.get('https://ipinfo.io/json?token=a92f643f30573a');
+
+  const  = await axios.get('https://ipinfo.io/json?token=a92f643f30573a')
 }
