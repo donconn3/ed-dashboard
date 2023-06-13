@@ -11,14 +11,14 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     </head>
-    <body onload="getPictures()"> 
+    <body onloa="getPictures()"> 
         <div>
             <img id="nasa-image" src="">
         </div> 
         <div class="weather">
             <div id="search">
                 <input id="search-box" type="textbox" placeholder="City or ZipCode"></input>
-                <button type="button" id="search-location" onse onclick="getWeather()">Search</button>
+                <button type="button" id="search-location" onclick="getWeather()">Search</button>
                 <h2 id="city-name">Mount Vernon</h2>
             </div>
             <div class="weather-icon">
@@ -38,7 +38,15 @@
                     <p id="wind-tag">Wind Speed</p>
                 </div>
             </div>
-        </div>    
+        </div>   
+        <div>
+            <p id="ip-info" onclick ="getIpAddress()">See Location Details</p>
+            <p id="city-state">City: </p>
+            <p id="postal">Zip Code: </p>
+            <p id="country">Country: </p>
+            <p id="ip">IP Address: </p>
+            <p id="loc">Coordinates: </p>
+        </div> 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="index.js"></script>
     </body>
