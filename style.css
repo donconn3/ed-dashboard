@@ -114,3 +114,7 @@ body{
     justify-self: center;
     
 }
+.ipData{
+    border: solid 5px black;
+    padding-right: 200px;
+}
