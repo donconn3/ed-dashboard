@@ -113,24 +113,52 @@ try {
 
 }
 
-// const getIpAddress = () =>{
+//  const getIpAddress = () =>{
 //   let data;
 //   axios
 //   .get('https://ipinfo.io/json?token=a92f643f30573a')
 //     .then(response =>{
 //       data = response.data;
 //       //text.innerText = JSON.stringify(data);
-//       document.getElementById('city-state').innerText = 'City: ' + data.city + ', ' + data.region;
-//       document.getElementById('postal').innerText = 'Zip Code: ' + data.postal;
-//       document.getElementById('country').innerText = 'Country: ' + data.country;
-//       document.getElementById('ip').innerText = 'IP Address: ' + data.ip;
-//       document.getElementById('loc').innerText = 'Coordinates: ' + data.loc;
+//       // document.getElementById('city-state').innerText = 'City: ' + data.city + ', ' + data.region;
+//       // document.getElementById('postal').innerText = 'Zip Code: ' + data.postal;
+//       // document.getElementById('country').innerText = 'Country: ' + data.country;
+//       // document.getElementById('ip').innerText = 'IP Address: ' + data.ip;
+//       // document.getElementById('loc').innerText = 'Coordinates: ' + data.loc;
 //       console.log(data);
 //     }) .catch(error => console.error(error));
-// }
+//  }
 
-const getWxFromIpAddress = async() =>{
-  const ipAddress = await axios.get('https://ipinfo.io/json?token=a92f643f30573a');
+const getWxFromIpAddress = () => {
 
-  //const  = await axios.get('https://ipinfo.io/json?token=a92f643f30573a')
+try{
+  axios
+    .get('https://ipinfo.io/json?token=a92f643f30573a')
+    .then((response1) =>{
+      return axios
+              .get('https://api.weather.gov/points/' + response1.data.loc)
+              .then((response2) =>{
+                return axios
+                        .get(response2.data.properties.observationStations)
+                        .then((response3) =>{
+                          return axios
+                                  .get(response3.data.features[0].id + '/observations/latest')
+                                  .then((response4) =>{
+                                    document.getElementById('loc').innerText = response4.data.properties.temperature.value;
+                                  })
+                        })
+              })
+    })
+
+  
+  // const wxGrid = await axios.get('https://api.weather.gov/points/' + location.data.loc);
+  // const wxStation = await axios.get(wxGrid.data.properties.observationStations);
+  // const wxData = await axios.get(wxStation.data.features[0].id + '/observations/latest');
+
+  // document.getElementById('loc').innerText = wxData.properties.temperature.value;
+  //document.getElementById('loc').innerText = 'Coordinates: ' + data.loc;
+
+}catch(err){
+  console.log(err);
+}
 }
