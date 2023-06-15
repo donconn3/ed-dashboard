@@ -132,5 +132,5 @@ try {
 const getWxFromIpAddress = async() =>{
   const ipAddress = await axios.get('https://ipinfo.io/json?token=a92f643f30573a');
 
-  const  = await axios.get('https://ipinfo.io/json?token=a92f643f30573a')
+  //const  = await axios.get('https://ipinfo.io/json?token=a92f643f30573a')
 }
