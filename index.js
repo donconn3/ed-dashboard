@@ -128,13 +128,20 @@ try {
 //       console.log(data);
 //     }) .catch(error => console.error(error));
 //  }
-
+function convertTemp(temp){
+  return (temp*1.8) + 32;
+}
 const getWxFromIpAddress = () => {
 
 try{
   axios
     .get('https://ipinfo.io/json?token=a92f643f30573a')
     .then((response1) =>{
+     document.getElementById('city-state').innerText = 'City: ' + response1.data.city + ', ' + response1.data.region;
+      document.getElementById('postal').innerText = 'Zip Code: ' + response1.data.postal;
+      document.getElementById('country').innerText = 'Country: ' + response1.data.country;
+      document.getElementById('ip').innerText = 'IP Address: ' + response1.data.ip;
+      document.getElementById('loc').innerText = 'Coordinates: ' + response1.data.loc;
       return axios
               .get('https://api.weather.gov/points/' + response1.data.loc)
               .then((response2) =>{
@@ -144,7 +151,9 @@ try{
                           return axios
                                   .get(response3.data.features[0].id + '/observations/latest')
                                   .then((response4) =>{
-                                    document.getElementById('loc').innerText = response4.data.properties.temperature.value;
+                                    let tempValue = response4.data.properties.temperature.value;
+                                    document.getElementById('loc').innerText = convertTemp(parseInt(tempValue));
+
                                   })
                         })
               })
